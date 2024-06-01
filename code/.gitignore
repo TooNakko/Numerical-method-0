@@ -1,2 +1,4 @@
 *.lnk
 test.py
+*.exe
+*.cpp
