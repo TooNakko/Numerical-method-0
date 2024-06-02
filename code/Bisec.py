@@ -2,6 +2,7 @@ def f(x):
     return (x+2) * pow((x+1),2) * x * pow((x-1),3) * (x-2)
 
 
+
 def Bisec(nranges, e):
     pre_p = 0
     idx  = 1

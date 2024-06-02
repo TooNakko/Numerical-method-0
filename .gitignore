@@ -1,4 +1,5 @@
 *.lnk
 test.py
+tempCodeRunnerFile.py
 *.exe
 *.cpp

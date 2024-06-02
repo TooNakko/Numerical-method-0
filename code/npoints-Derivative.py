@@ -1,8 +1,8 @@
 import numpy as np
 from numpy import *
+import math
 def f(x):
-    return tan(2*x)
-
+    return pow(math.e, 2*x)
 
 def d_f(x):
     h = 1e-6
@@ -14,7 +14,8 @@ def npointD(method, x, h, fx_arr, maxd):
     if method == "3end":
         try:
             #re = 1/2*h + [-3 * f(x) + 4*f(x+h) - f(x+2*h)]
-            re = 1/(2*h) + (-3 * fx_arr[round(x,maxd)] + 4*fx_arr[round(x+h,maxd)] - fx_arr[round(x+2*h,maxd)])
+            re = 1/(2*h) * (-3 * fx_arr[round(x,maxd)] + 4*fx_arr[round(x+h,maxd)] - fx_arr[round(x+2*h,maxd)])
+
         except Exception:
             print("Index error found, please choose another method")
             return 0
@@ -47,15 +48,16 @@ def npointD(method, x, h, fx_arr, maxd):
 
 
 def main():
-    fx_arr = {1.05: -1.709847,1.10: -1.373823, 1.15:-1.119214, 1.2: -0.9160143, 1.25: -0.7470223, 1.3: -0.6015966}
+    fx_arr = {1.1: 9.025013, 1.2: 11.02318, 1.3:13.46374, 1.4: 16.44465}
     max_digits = 2
-    h = -0.05
-    method = "5end"
-    x = 1.3
+    h = -0.1
+    method = "3end"
+    x = 1.4
     re = npointD(method, x, h, fx_arr, max_digits)
     re_ = d_f(x)
     if re != 0:
         print("Result using {} method is {:.6f}. Result by directly calculating is {:.6f}".format(method, re, re_))
+        print("Actual error = {:.6f}".format(re_ - re))
     pass
 
 if __name__ == "__main__":
