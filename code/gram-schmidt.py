@@ -24,5 +24,5 @@ def gs(X):
 test = numpy.array([[3.0, 1.0], [2.0, 2.0]])
 test2 = numpy.array([[1.0, 1.0, 0.0], [1.0, 3.0, 1.0], [2.0, -1.0, 1.0]])
 
-print (numpy.array(gs(test)))
-print (numpy.array(gs(test2)))
+print (gs(test))
+print (gs(test2))
