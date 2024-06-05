@@ -28,7 +28,8 @@ def main():
     upper = 1
     y_correct, y_predict, t_arr = Heun(y0,t0,h, upper)
     for i in range(1,len(y_correct)):
-        print("At t = {}, y_predicted = {:.6f} and y_corrected = {:.6f}, real value = {:.6f}".format(t_arr[i], y_predict[i], y_correct[i], f_real(t_arr[i])))
+        fr = f_real(t_arr[i])
+        print("At t = {}, y_predicted = {:.6f} and y_corrected = {:.6f}, real value = {:.6f} -> error = {:.6f}".format(t_arr[i], y_predict[i], y_correct[i], fr, abs(fr - y_correct[i])))
     
     return
 
