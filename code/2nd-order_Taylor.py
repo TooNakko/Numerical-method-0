@@ -11,7 +11,7 @@ def df( y,t):
 #def df(y,t):
 #    return y - t**2 + 1 - 2 * t
 
-def TaylorNOrder(n,h,t0,y0):
+def TaylorNOrder(n,h,t0,y0, upper):
     if(n!=2):
         print("Please pick n = 2.")
         return 0,0
@@ -21,7 +21,8 @@ def TaylorNOrder(n,h,t0,y0):
     t_arr = []
     y_arr.append(y0)
     t_arr.append(t0)
-    while idx<80:
+    t = t0
+    while t<upper:
         T = f(y_arr[-1], t_arr[-1]) + h**(n-1)/ math.factorial(n) * df(y_arr[-1], t_arr[-1])
         y = y_arr[-1] + h * T
         y_arr.append(y)
@@ -39,12 +40,22 @@ def main():
     y0 = -1
     t0 = 1
     h = 0.05
+    upper = 2
 
-
-    re_y, re_t = TaylorNOrder(n,h,t0,y0)
+    re_y, re_t = TaylorNOrder(n,h,t0,y0, upper)
     for i in range(len(re_y)):
         print("y({:.2f}) = {:.6f}".format(re_t[i], re_y[i]))
     pass
 
+
+
+
+
 if __name__ == "__main__":
+ 
+
     main()
+
+    print("\n======================")    
+    print(" Ngạc Anh Kiệt - 21020690")
+    print("======================\n")   

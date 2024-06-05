@@ -27,5 +27,7 @@ Lf_arr = []
 out = kko(8.4, f, f_coef)
 print(out)
 
-
+print("\n======================")    
+print(" Ngạc Anh Kiệt - 21020690")
+print("======================\n") 
     

@@ -14,7 +14,7 @@ def Simpson(a,b,n):
             else:
                 coef = 2
         final += h/3 * coef * f(a + h_)
-        print("With x = {} | coef = {} | f = {} | final = {}".format(a+h_,coef,f(a + h_), final), end = "\n\n")
+        print("With x = {} | coef = {} | f = {:.6f} | final = {:.6f}".format(a+h_,coef,f(a + h_), final), end = "\n\n")
 
         h_ += h
     return final
@@ -31,7 +31,7 @@ def Trapezoidal(a,b,n):
         else:
             coef = 2
         final += h/2 * coef * f(a + h_)
-        print("With x = {} | f = {} | final = {}".format(a+h_,f(a + h_), final), end = "\n\n")
+        print("With x = {} | f = {:.6f} | final = {:.6f}".format(a+h_,f(a + h_), final), end = "\n\n")
 
         h_ += h
     return final
@@ -48,7 +48,7 @@ def MidPoint(a,b,n):
         temp_h += h
     for i in range(n):
         final += h * f(mid[i])
-        print("With x = {} | f = {} | final = {}".format(mid[i], f(mid[i]), final), end = "\n\n")
+        print("With x = {} | f = {:.6f} | final = {:.6f}".format(mid[i], f(mid[i]), final), end = "\n\n")
         
     return final
 
@@ -59,10 +59,13 @@ def main():
     b = 2
     n = 2
     f = Simpson(a,b,n)
-    print("FINAL: ",f)
+    print("FINAL: {:.6f}".format(f))
     pass
 
 
 
 if __name__ == "__main__":
     main()
+    print("\n======================")    
+    print(" Ngạc Anh Kiệt - 21020690")
+    print("======================\n") 
