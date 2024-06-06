@@ -4,6 +4,10 @@ def f(y,t):
     return 1/t**2 - y/t +- y**2
     pass
 
+def fr(t):
+    return -1/t
+
+
 def df( y,t):
   eps = 10e-6
   return (f(t+eps, y) - f(t, y)) / eps
@@ -44,7 +48,8 @@ def main():
 
     re_y, re_t = TaylorNOrder(n,h,t0,y0, upper)
     for i in range(len(re_y)):
-        print("y({:.2f}) = {:.6f}".format(re_t[i], re_y[i]))
+        f_r = fr(re_t[i])
+        print("y({:.2f}) = {:.6f} | True value y = {:.6f}. Error = {:.6f}".format(re_t[i], re_y[i], f_r, abs(f_r - re_y[i])))
     pass
 
 

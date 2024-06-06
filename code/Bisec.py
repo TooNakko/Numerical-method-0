@@ -46,7 +46,7 @@ def main():
     ps, idxs, res = Bisec(nranges, 10e-8)
     print('\n\n')
     for i in range(len(ps)):
-        print("Range {0}: Loop {1} times, solution = {2} at f() = {3}\n".format(nranges[i], idxs[i], ps[i], res[i]))
+        print("Range {0}: Loop {1} times, solution = {2} at f = {3}\n".format(nranges[i], idxs[i], ps[i], res[i]))
 
 if __name__ == "__main__":
     main()

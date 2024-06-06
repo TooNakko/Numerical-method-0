@@ -1,12 +1,12 @@
 from math import *
-
+import numpy as np
 def f(y,t):
-    return t * pow(e, 3*t) - 2*y 
+    return e**(t-y)
 
 def f_real(t):
-    return 1/5 * t * e**(3*t) - 1/25 * e**(3*t) + 1/25 * e**(-2*t) 
+    return np.log(e**t + np.e - 1)
 
-def Heun(t0,y0,h, upper):
+def Heun(y0,t0,h, upper):
     y_predict = [0]
     y_correct = [y0]
     t_arr = [t0]
@@ -23,14 +23,15 @@ def Heun(t0,y0,h, upper):
 
 def main():
     t0 = 0
-    y0 = 0
-    h = 0.5
+    y0 = 1
+    h = 0.05
     upper = 1
     y_correct, y_predict, t_arr = Heun(y0,t0,h, upper)
+
     for i in range(1,len(y_correct)):
         fr = f_real(t_arr[i])
-        print("At t = {}, y_predicted = {:.6f} and y_corrected = {:.6f}, real value = {:.6f} -> error = {:.6f}".format(t_arr[i], y_predict[i], y_correct[i], fr, abs(fr - y_correct[i])))
-    
+        print("At t = {:.2f}, y_predicted = {:.6f} and y_corrected = {:.6f}, real value = {:.6f} -> error = {:.6f}".format(t_arr[i], y_predict[i], y_correct[i], fr, abs(fr - y_correct[i])))
+
     return
 
 

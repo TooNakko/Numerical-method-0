@@ -1,7 +1,7 @@
 
 import random
 def f(x):
-    return x**2 - 4
+    return x**3 - 25
 
 def df(x):
     h = 1e-6

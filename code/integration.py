@@ -1,5 +1,8 @@
+from math import *
+import numpy as np
+
 def f(x):
-    return 1 / x
+    return cos(x)**2
 
 def Simpson(a,b,n):
     h = (b - a)/n
@@ -48,17 +51,17 @@ def MidPoint(a,b,n):
         temp_h += h
     for i in range(n):
         final += h * f(mid[i])
-        print("With x = {} | f = {:.6f} | final = {:.6f}".format(mid[i], f(mid[i]), final), end = "\n\n")
+        print("With x_mid = {:.6f} | f = {:.6f}".format(mid[i], f(mid[i])), end = "\n\n")
         
     return final
 
 
 
 def main():
-    a = 1
-    b = 2
-    n = 2
-    f = Simpson(a,b,n)
+    a = -0.5
+    b = 0.5
+    n = 10
+    f = MidPoint(a,b,n)
     print("FINAL: {:.6f}".format(f))
     pass
 

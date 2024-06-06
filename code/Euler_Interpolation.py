@@ -6,6 +6,11 @@ from math import *
 def f(y,t):
     return 1/pow(t,2) - y/t - pow(y,2) 
 
+def fr(t):
+    return -1/t
+
+
+
 def Euler(t0, t_upper, y0, h):
     t_arr = []
     y_arr = []
@@ -30,7 +35,8 @@ def main():
     
     y_arr, t_arr = Euler(t0,t_upper, y0, h)
     for i in range(len(y_arr)):
-        print("t = {:.6f} | y = {:.6f}".format(t_arr[i], y_arr[i]))
+        f_r = fr(t_arr[i])
+        print("t = {:.6f} -> y = {:.6f} | Actual y = {:.6f}. Error = {:.6f}".format(t_arr[i], y_arr[i], f_r, abs(f_r - y_arr[i])))
     pass
 
 

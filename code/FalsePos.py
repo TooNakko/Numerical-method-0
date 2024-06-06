@@ -12,8 +12,9 @@ def Falsepos(nrange, er):
     p_arrs = []
     p_arrs.append(nrange[0])
     p_arrs.append(nrange[1])
+    print("p0 = {}\np1 = {}".format(p_arrs[0], p_arrs[-1]))
     p2 = calcp(p_arrs[0],p_arrs[1])
-    print("P2 = ", p2)
+    print("p2 = ", p2)
     p_arrs.append(p2)
     cur_idx = 2
     while True:
@@ -27,8 +28,7 @@ def Falsepos(nrange, er):
         print(
             '''
 p_{0} = {1}
-ff_{0} = {2}
-            '''.format(cur_idx + 1, p_new ,f_new))
+ff_{0} = {2}'''.format(cur_idx + 1, p_new ,f_new))
         cur_idx +=1
         if abs(f_new) < er or cur_idx > 20:
             break
@@ -38,7 +38,7 @@ ff_{0} = {2}
 def main():
     nrange = [1,2]
     re, f_err = Falsepos(nrange, 10e-8)
-    print("Final result: x = {}\nWith error = {}".format(re, f_err))
+    print("\nFinal result: x = {}\nWith error = {}".format(re, f_err))
 if __name__ == "__main__":
     main()
     print("\n======================")    

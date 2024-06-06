@@ -2,7 +2,7 @@ import numpy as np
 from numpy import *
 import math
 def f(x):
-    return pow(math.e, 2*x)
+    return tan(2*x)
 
 def d_f(x):
     h = 1e-6
@@ -48,15 +48,15 @@ def npointD(method, x, h, fx_arr, maxd):
 
 
 def main():
-    fx_arr = {1.1: 9.025013, 1.2: 11.02318, 1.3:13.46374, 1.4: 16.44465}
+    fx_arr = {1.05: -1.709847, 1.1: -1.373823, 1.15:-1.119214, 1.2: -0.9160143, 1.25: -0.7470223, 1.3:-0.6015966}
     max_digits = 2
-    h = -0.1
-    method = "3end"
-    x = 1.4
+    h = -0.05
+    method = "5end"
+    x = 1.3
     re = npointD(method, x, h, fx_arr, max_digits)
     re_ = d_f(x)
     if re != 0:
-        print("Result using {} method is {:.6f}. Result by directly calculating is {:.6f}".format(method, re, re_))
+        print("At x = {}, result using {} method is {:.6f}. Result by directly calculating is {:.6f}".format(x,method, re, re_))
         print("Actual error = {:.6f}".format(re_ - re))
     pass
 

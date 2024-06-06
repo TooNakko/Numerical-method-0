@@ -26,8 +26,8 @@ def Newton(p0, err, final_sol):
     
 
 def main():
-    p0 = -100
-    getcontext().prec = 6
+    p0 = -25
+
 
     final_sol = 1.3793646
     p_arrs = Newton(p0, 10e-5, final_sol)
